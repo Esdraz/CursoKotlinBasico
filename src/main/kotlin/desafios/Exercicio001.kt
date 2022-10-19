@@ -12,6 +12,7 @@ g. Imprima o valor do PIB per capita.
 h. Rode seu programa de maneira que não tenha erros de compilação ou execução.
 */
 
+//Variaveis, tipos de dados e operadores
 fun main() {
 
     var nome = "Francisco Sousa"
