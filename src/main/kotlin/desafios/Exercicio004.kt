@@ -4,26 +4,42 @@ import kotlin.system.exitProcess
 
 //Reforçando If/Else pt 2
 
-fun lerDoisNumeros() {
-    val n1 = readLine()
-    val n2 = readLine()
+fun quadrado() {
+    print("Informe o lado 1: ")
+    val lado1 = readLine()
+    print("Informe o lado 2: ")
+    val lado2 = readLine()
 
-    if (n1 == n2) {
-        println("Quadrado")
-    } else {
-        println("Não forma um quadrado")
+    if (lado1 != null && lado1 != "" && lado2 != null && lado2 != "") {
+        val x = lado1.toInt()
+        val y = lado2.toInt()
+
+        if (x == y) {
+            println("é um quadrado")
+        } else {
+            println("Não é um quadrado")
+        }
     }
 }
 
-fun lerTresNumeros() {
+fun triangulo() {
+    print("Informe o lado 1: ")
     val l1 = readLine()
+    print("Informe o lado 2: ")
     val l2 = readLine()
+    print("Informe o lado 3: ")
     val l3 = readLine()
 
-    if (l1 == l2 && l2 == l3) {
-        println("Triangulo equilatero")
-    } else {
-        println("Não é Triangulo equilatero")
+    if (l1 != null && l1 != "" && l2 != null && l2 != "" && l3 != null && l3 != "") {
+        val x = l1.toInt()
+        val y = l2.toInt()
+        val z = l3.toInt()
+
+        if (x == y && y == z) {
+            println("É um triângulo equilátero.")
+        } else {
+            println("Não é um triângulo equilátero.")
+        }
     }
 }
 
@@ -37,32 +53,50 @@ fun qualASaida(num: Int) {
 }
 
 fun controlePortaria() {
+
+    print("informe idade: ")
     val idade = readLine()
 
-    if (idade != null) {
+    if (idade != null && idade != "") {
         if (idade.toInt() < 18) {
             println("Negado! Menores de idade não são permitidos.")
-        } else {
-            val tipoConvite = readLine()
-            if (tipoConvite != "comum" ||tipoConvite != "premium" || tipoConvite != "luxo") {
-                println("Negado! Acesso inválido.")
+            return
+        }
+        print("Qual o tipo de convite? ")
+        val tipoConvite = readLine()
+
+        if (tipoConvite != null && tipoConvite != "") {
+            var tipoConvite = tipoConvite.lowercase()
+
+            //validação do convite
+            if (tipoConvite != "comum" && tipoConvite != "premium" && tipoConvite != "luxo") {
+                println("Negado. Convite inválido!")
+                return
             }
 
-            val codigoConvite = readLine()
+                print("Informe o código do convite: ")
+                val codigoConvite = readLine()
 
+                if (codigoConvite != null && codigoConvite != "") {
+                    var codigoConvite = codigoConvite.lowercase()
 
+                    if (tipoConvite == "comum" && codigoConvite.startsWith("xt")) {
+                        println("Welcome!")
+                    } else if (tipoConvite == "premium" || tipoConvite == "luxo"
+                        && codigoConvite.startsWith("xl")) {
+                        println("Welcome! :)")
+                    } else {
+                        println("Negado. Códico do convite inválido!")
+                    }
+                }
         }
 
     }
-
-
 }
 
 fun main() {
 
-//    lerDoisNumeros()
-//    lerTresNumeros()
-//    qualASaida(4)
     controlePortaria()
-
 }
+
+
