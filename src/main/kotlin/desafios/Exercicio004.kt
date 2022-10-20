@@ -75,14 +75,14 @@ fun controlePortaria() {
             }
 
                 print("Informe o código do convite: ")
-                val codigoConvite = readLine()
+                var codigoConvite = readLine()
 
                 if (codigoConvite != null && codigoConvite != "") {
-                    var codigoConvite = codigoConvite.lowercase()
+                    codigoConvite = codigoConvite.lowercase()
 
                     if (tipoConvite == "comum" && codigoConvite.startsWith("xt")) {
                         println("Welcome!")
-                    } else if (tipoConvite == "premium" || tipoConvite == "luxo"
+                    } else if ((tipoConvite == "premium" || tipoConvite == "luxo")
                         && codigoConvite.startsWith("xl")) {
                         println("Welcome! :)")
                     } else {
